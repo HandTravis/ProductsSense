@@ -1,1 +1,1 @@
-# recommender
+ProductSense is an intelligent product recommendation app that leverages the power of Rainforest API and advanced natural language processing techniques. The app fetches detailed product information from Amazon based on user queries, filters out duplicate entries, and uses a summarization model to provide concise and relevant product summaries. Integrated with OctoAI's advanced language models and FAISS vector stores, SmartShopper AI ensures accurate and efficient product searches, helping users make informed shopping decisions quickly and easily.
