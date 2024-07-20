@@ -7,9 +7,13 @@ import backgroundImage from '../Images/background.jpg';
 const WelcomePage = () => {
   const [url, setUrl] = useState('');
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    // Handle form submission here
-    navigate('/chat');
+  const handleSubmit = async () => {
+    try {
+      await axios.post('http://localhost:3000/product', { url }); // Sending the URL to the backend
+      navigate('/chat');
+    } catch (error) {
+      console.error('Error sending product data:', error);
+    }
   };
 
   return (
@@ -30,7 +34,7 @@ const WelcomePage = () => {
             fullWidth
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://example.com"
+            placeholder=""
           />
           <Button
             variant="contained"
