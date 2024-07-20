@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Chat from './pages/chat';
 import WelcomePage from './pages/welcome';
 
+//testing commit
+
 const App = () => {
   return (
     <Router>
