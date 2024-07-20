@@ -1,21 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Typography, Button, Container } from '@mui/material';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, Typography, Button, Container, TextField } from '@mui/material';
 import './welcome.css';
 import backgroundImage from '../Images/background.jpg';
 
 const WelcomePage = () => {
-
+  const [url, setUrl] = useState('');
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    // Handle form submission here
+    navigate('/chat');
+  };
 
   return (
     <Box className="welcome-container">
       <Container maxWidth="sm" className="welcome-box">
         <Typography variant="h4" component="h1" align="center" gutterBottom>
-          Welcome to Our Chat Service
+          Welcome to Our Recommendation Service
         </Typography>
         <Typography variant="body1" align="center" gutterBottom>
-          Have questions? Chat with us and get quick answers!
+          Want to know the best product? Chat with us and get quick answers!
         </Typography>
+        
+        {/* Placeholder Input Field and Submit Button */}
+        <Box mt={4} textAlign="center">
+          <TextField
+            label="Enter URL"
+            variant="outlined"
+            fullWidth
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="https://example.com"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+            sx={{ mt: 2 }}
+          >
+            Submit
+          </Button>
+        </Box>
+        
+        {/* Uncomment and use the following section if needed */}
         {/* <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 4 }}>
           <Button variant="contained" color="primary" component={Link} to="/login" sx={{ mr: 2 }}>
             Log In
