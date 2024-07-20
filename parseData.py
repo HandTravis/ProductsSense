@@ -48,9 +48,9 @@ def fetch_products(query, num_pages=1):
             break  # No more results, exit loop
     return products
 
-# Example query for microwaves
-query = "microwave"
-products_info = fetch_products(query, num_pages=3)  # Fetch results from 3 pages
+
+query = "microwave" # product that the user is looking for on amazon
+products_info = fetch_products(query, num_pages=4)  # Fetch results from 3 pages
 
 # Extract and process the product information
 texts = []
@@ -131,6 +131,7 @@ vector_store = FAISS.from_documents(
 
 retriever = vector_store.as_retriever()
 
+# testing commit
 # Define prompt template
 template = """You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
 Question: {question} 
@@ -147,5 +148,6 @@ chain = (
 )
 
 # Invoke the chain with a question
-result = chain.invoke("What is the summary of this information?")
+chat = "What is the summary of this information?"
+result = chain.invoke(chat)
 print(result)
